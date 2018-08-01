@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Symfony Films {% endblock %}
+
+{% block body %}
+
+<h1>Films</h1>
+
+{% if films %}
+	<div class="bs-component">
+		<div class="table-responsive">
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Film title</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{% for film in films %}
+						<tr>
+							<td class="align-middle">{{ film }}</td>
+							<td class="align-middle text-right"><a href="/film/1" class="btn btn-light">Show</a></td>
+						</tr>
+					{% endfor %}
+
+				</tbody>
+			</table>
+	</div>
+	</div>
+{% else %}
+	<p>No films</p>
+{% endif %}
+
+
+{% endblock %}
