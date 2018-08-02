@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Symfony Films {% endblock %}
+
+{% block body %}
+
+<div class="row">
+	<div class="col-md-12">
+		<h1>{{ film.title }}</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-3">
+		<figure>
+			<img class="img-fluid" src="{{ film.imageurl }}" alt="Film Image">
+		</figure>
+	</div>
+	<div class="col-md-9">
+		<p class="text-justify">{{ film.description }}</p>
+		<p class="font-weight-bold">Score: {{ film.score }}</p>
+	</div>
+</div>
+
+
+{% endblock %}

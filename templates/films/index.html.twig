@@ -4,29 +4,43 @@
 
 {% block body %}
 
+
 <h1>Films</h1>
 
-{% if films %}
+{% if savedfilm is defined %}
+
+Olá{{ savedfilm }} 
+
+{% endif %}
+
+{% if pagination %}
 	<div class="bs-component">
 		<div class="table-responsive">
 			<table class="table table-hover">
 				<thead>
 					<tr>
+						<th></th>
 						<th>Film title</th>
+						<th>Film score</th>
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
-					{% for film in films %}
+					{% for film in pagination %}
 						<tr>
-							<td class="align-middle">{{ film }}</td>
-							<td class="align-middle text-right"><a href="/film/1" class="btn btn-light">Show</a></td>
+							<td class="align-middle" style="width: 100px"><img class="img-fluid" src="{{ film.imageurl }}" alt="Film Image"></td>
+							<td class="align-middle">{{ film.title }}</td>
+							<td class="align-middle">{{ film.score }}</td>
+							<td class="align-middle text-right"><a href="/film/{{film.id}}" class="btn btn-light">Show</a></td>
 						</tr>
 					{% endfor %}
 
 				</tbody>
 			</table>
-	</div>
+			<div class="navigation">
+	    		{{ knp_pagination_render(pagination) }}
+			</div>
+		</div>
 	</div>
 {% else %}
 	<p>No films</p>

@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link rel="stylesheet" type="text/css" href="{{ app.request.baseUrl }}/assets/css/style.css">
         {% block stylesheets %}{% endblock %}
     </head>
     <body>
@@ -12,9 +12,9 @@
         	{% block body %}{% endblock %}
         </div>
         {% block javascripts %}
-        	<script type="text/javascript" src="assets/js/jquery-3.3.1.slim.min.js"></script>
-        	<script type="text/javascript" src="assets/js/popper.min.js"></script>
-        	<script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+        	<script type="text/javascript" src="{{ app.request.baseUrl }}/assets/js/jquery-3.3.1.slim.min.js"></script>
+        	<script type="text/javascript" src="{{ app.request.baseUrl }}/assets/js/popper.min.js"></script>
+        	<script type="text/javascript" src="{{ app.request.baseUrl }}/assets/js/bootstrap.min.js"></script>
         {% endblock %}
     </body>
 </html>
